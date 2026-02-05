@@ -2,19 +2,19 @@ export const translations = {
     english: {
         // Home Screen
         welcomeBack: 'Welcome Back',
-        whatLearn: 'Search courses...',
-        guidancePreviews: 'Guidance Previews',
-        inProgress: 'In Progress',
+        whatLearn: 'Search financial videos...',
+        guidancePreviews: 'Featured Videos',
+        inProgress: 'Continue Watching',
         seeAll: 'See All',
-        popularCourses: 'Popular Courses',
-        courseProgress: 'Course Progress',
-        lessons: 'Lessons',
-        enrollNow: 'Enroll Now',
+        popularCourses: 'Popular Videos',
+        courseProgress: 'Video Progress',
+        lessons: 'Videos',
+        enrollNow: 'Watch Now',
 
         // Courses
-        myCourse: 'My Course',
-        coursesFor: 'There are',
-        coursesForYou: 'courses for you.',
+        myCourse: 'My Videos',
+        coursesFor: 'You have',
+        coursesForYou: 'videos to watch.',
 
         // Chat
         messages: 'Messages',
@@ -27,55 +27,55 @@ export const translations = {
 
         // Profile
         profile: 'Profile',
-        enrolledCourses: 'Enrolled Courses',
-        mockTestsDone: 'Mock Tests Done',
-        examReadiness: 'Exam Readiness',
+        enrolledCourses: 'Watched Videos',
+        mockTestsDone: 'Quizzes Completed',
+        examReadiness: 'Financial Knowledge',
         personalData: 'Personal Data',
         settings: 'Settings',
         eStatement: 'E-Statement',
         referralCode: 'Referral Code',
         faqs: 'FAQs',
         logOut: 'Log Out',
-        aspirantName: 'Aspirant Name',
+        aspirantName: 'Your Name',
 
         // Course Details
-        upscRecommended: 'UPSC Recommended',
+        upscRecommended: 'Recommended',
         reviews: 'reviews',
         createdBy: 'Created by',
-        aboutCourse: 'About Course',
-        curriculum: 'Curriculum',
+        aboutCourse: 'About This Series',
+        curriculum: 'Video Playlist',
         mins: 'mins',
 
         // Common
-        upscAspirant: 'UPSC Aspirant',
+        upscAspirant: 'Financial Learner',
 
         // Course Names
-        course1: 'UPSC Prelims Complete Course',
-        course2: 'MPSC Rajyaseva Preparation',
-        course3: 'Indian Polity & Governance',
-        course4: 'Modern Indian History',
-        course5: 'Indian Geography & Environment',
-        course6: 'Indian Economy & Budget Analysis',
-        course7: 'Current Affairs 2026 - Complete',
-        course8: 'CSAT Paper-II Mastery',
-        course9: 'Essay Writing & Ethics',
+        course1: 'Stock Market Basics for Beginners',
+        course2: 'Mutual Funds Complete Guide',
+        course3: 'Personal Finance & Budgeting',
+        course4: 'Investing in Indian Stock Market',
+        course5: 'Tax Planning & Savings',
+        course6: 'Cryptocurrency & Digital Assets',
+        course7: 'Real Estate Investment Strategies',
+        course8: 'Retirement Planning Masterclass',
+        course9: 'Financial Freedom Blueprint',
     },
     marathi: {
         // Home Screen
         welcomeBack: 'पुन्हा स्वागत आहे',
-        whatLearn: 'अभ्यासक्रम शोधा...',
-        guidancePreviews: 'मार्गदर्शन पूर्वावलोकन',
-        inProgress: 'प्रगतीपथावर',
+        whatLearn: 'आर्थिक व्हिडिओ शोधा...',
+        guidancePreviews: 'वैशिष्ट्यीकृत व्हिडिओ',
+        inProgress: 'पाहणे सुरू ठेवा',
         seeAll: 'सर्व पहा',
-        popularCourses: 'लोकप्रिय अभ्यासक्रम',
-        courseProgress: 'अभ्यासक्रम प्रगती',
-        lessons: 'धडे',
-        enrollNow: 'आता नोंदणी करा',
+        popularCourses: 'लोकप्रिय व्हिडिओ',
+        courseProgress: 'व्हिडिओ प्रगती',
+        lessons: 'व्हिडिओ',
+        enrollNow: 'आता पहा',
 
         // Courses
-        myCourse: 'माझे अभ्यासक्रम',
-        coursesFor: 'तुमच्यासाठी',
-        coursesForYou: 'अभ्यासक्रम आहेत.',
+        myCourse: 'माझे व्हिडिओ',
+        coursesFor: 'तुमच्याकडे',
+        coursesForYou: 'व्हिडिओ पाहण्यासाठी आहेत.',
 
         // Chat
         messages: 'संदेश',
@@ -88,38 +88,38 @@ export const translations = {
 
         // Profile
         profile: 'प्रोफाइल',
-        enrolledCourses: 'नोंदणीकृत अभ्यासक्रम',
-        mockTestsDone: 'चाचणी पूर्ण',
-        examReadiness: 'परीक्षा तयारी',
+        enrolledCourses: 'पाहिलेले व्हिडिओ',
+        mockTestsDone: 'क्विझ पूर्ण',
+        examReadiness: 'आर्थिक ज्ञान',
         personalData: 'वैयक्तिक माहिती',
         settings: 'सेटिंग्ज',
         eStatement: 'ई-स्टेटमेंट',
         referralCode: 'रेफरल कोड',
         faqs: 'सामान्य प्रश्न',
         logOut: 'लॉग आउट',
-        aspirantName: 'उमेदवाराचे नाव',
+        aspirantName: 'तुमचे नाव',
 
         // Course Details
-        upscRecommended: 'UPSC शिफारस केलेले',
+        upscRecommended: 'शिफारस केलेले',
         reviews: 'पुनरावलोकने',
         createdBy: 'निर्मिती',
-        aboutCourse: 'अभ्यासक्रमाबद्दल',
-        curriculum: 'अभ्यासक्रम',
+        aboutCourse: 'या मालिकेबद्दल',
+        curriculum: 'व्हिडिओ प्लेलिस्ट',
         mins: 'मिनिटे',
 
         // Common
-        upscAspirant: 'UPSC उमेदवार',
+        upscAspirant: 'आर्थिक शिकणारा',
 
         // Course Names
-        course1: 'UPSC प्रारंभिक संपूर्ण अभ्यासक्रम',
-        course2: 'MPSC राज्यसेवा तयारी',
-        course3: 'भारतीय राज्यशास्त्र आणि शासन',
-        course4: 'आधुनिक भारतीय इतिहास',
-        course5: 'भारतीय भूगोल आणि पर्यावरण',
-        course6: 'भारतीय अर्थव्यवस्था आणि अर्थसंकल्प विश्लेषण',
-        course7: 'चालू घडामोडी 2026 - संपूर्ण',
-        course8: 'CSAT पेपर-II प्रभुत्व',
-        course9: 'निबंध लेखन आणि नीतिशास्त्र',
+        course1: 'नवशिक्यांसाठी शेअर बाजार मूलभूत',
+        course2: 'म्युच्युअल फंड संपूर्ण मार्गदर्शक',
+        course3: 'वैयक्तिक वित्त आणि बजेटिंग',
+        course4: 'भारतीय शेअर बाजारात गुंतवणूक',
+        course5: 'कर नियोजन आणि बचत',
+        course6: 'क्रिप्टोकरन्सी आणि डिजिटल मालमत्ता',
+        course7: 'रिअल इस्टेट गुंतवणूक धोरणे',
+        course8: 'सेवानिवृत्ती नियोजन मास्टरक्लास',
+        course9: 'आर्थिक स्वातंत्र्य योजना',
     }
 };
 

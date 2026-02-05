@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View, Text, ScrollView, TextInput, Image, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Bell, Search, Filter, Play, Home, BookOpen, MessageSquare, LayoutGrid, User, Star, X, CheckCircle, Languages } from 'lucide-react-native';
+import { Bell, Search, Filter, Play, Home, BookOpen, MessageSquare, LayoutGrid, User, Star, X, CheckCircle, Languages, Landmark, TrendingUp, Building2, Wallet, ChevronDown } from 'lucide-react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import BottomNavBar from '../components/BottomNavBar';
@@ -17,116 +17,121 @@ export default function HomeScreen({ navigation }) {
     const coursesData = [
         {
             titleKey: 'course1',
-            instructor: 'Dr. Rajesh Kumar',
-            price: '₹8,999',
-            image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            instructor: 'CA Rajesh Mehta',
+            price: '₹999',
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/men/44.jpg',
             rating: 4.9,
-            reviews: 2450,
-            description: 'Complete UPSC Civil Services Prelims preparation with GS Paper I & II.',
-            lessons: '120 lessons',
-            duration: '80h 30m'
+            reviews: 12450,
+            description: 'Learn stock market fundamentals, how to read charts, and start investing wisely.',
+            lessons: '45 videos',
+            duration: '12h 30m'
         },
         {
             titleKey: 'course2',
-            instructor: 'Prof. Anjali Rai',
-            price: '₹6,499',
-            image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            instructor: 'Priya Sharma',
+            price: '₹1,499',
+            image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/women/85.jpg',
             rating: 4.8,
-            reviews: 1820,
-            description: 'Maharashtra PSC State Services exam preparation with Marathi & English.',
-            lessons: '95 lessons',
-            duration: '65h 45m'
+            reviews: 9820,
+            description: 'Complete guide to mutual funds, SIP, and building a diversified portfolio.',
+            lessons: '38 videos',
+            duration: '10h 45m'
         },
         {
             titleKey: 'course3',
-            instructor: 'Dr. Vikram Patil',
-            price: '₹3,999',
-            image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            instructor: 'Vikram Patil',
+            price: '₹499',
+            image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/men/65.jpg',
             rating: 4.9,
-            reviews: 3120,
-            description: 'Master Indian Constitution, Polity, and Governance for UPSC & MPSC.',
-            lessons: '75 lessons',
-            duration: '50h 20m'
+            reviews: 15120,
+            description: 'Master budgeting, expense tracking, and build a solid financial foundation.',
+            lessons: '32 videos',
+            duration: '8h 20m'
         },
         {
             titleKey: 'course4',
-            instructor: 'Dr. Meera Shah',
-            price: '₹4,499',
-            image: 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            instructor: 'Meera Shah',
+            price: '₹2,499',
+            image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/women/22.jpg',
             rating: 4.7,
-            reviews: 2180,
-            description: 'Complete coverage of Modern Indian History from 1857 to Independence.',
-            lessons: '85 lessons',
-            duration: '58h 15m'
+            reviews: 8180,
+            description: 'Deep dive into Indian stock market, NSE, BSE, and investment strategies.',
+            lessons: '52 videos',
+            duration: '15h 15m'
         },
         {
             titleKey: 'course5',
-            instructor: 'Prof. Suresh Joshi',
-            price: '₹3,799',
-            image: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            instructor: 'CA Suresh Joshi',
+            price: '₹1,299',
+            image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/men/55.jpg',
             rating: 4.8,
-            reviews: 1950,
-            description: 'Physical, Human Geography and Environmental Studies for competitive exams.',
-            lessons: '70 lessons',
-            duration: '48h 30m'
+            reviews: 11950,
+            description: 'Learn tax-saving strategies, deductions, and maximize your savings legally.',
+            lessons: '28 videos',
+            duration: '7h 30m'
         },
         {
             titleKey: 'course6',
-            instructor: 'Dr. Priya Kulkarni',
-            price: '₹4,999',
-            image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/women/66.jpg',
-            rating: 4.9,
-            reviews: 2650,
-            description: 'Indian Economy, Banking, Budget Analysis and Economic Survey coverage.',
-            lessons: '90 lessons',
-            duration: '62h 45m'
+            instructor: 'Aditya Kulkarni',
+            price: '₹3,999',
+            image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/men/66.jpg',
+            rating: 4.6,
+            reviews: 7650,
+            description: 'Understand cryptocurrency, blockchain, Bitcoin, Ethereum and digital investments.',
+            lessons: '42 videos',
+            duration: '11h 45m'
         },
         {
             titleKey: 'course7',
-            instructor: 'Mr. Aditya Sharma',
-            price: '₹2,999',
-            image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/men/32.jpg',
-            rating: 4.6,
-            reviews: 3420,
-            description: 'Daily current affairs updates with monthly compilations and quizzes.',
-            lessons: '365 lessons',
-            duration: '120h 00m'
+            instructor: 'Kavita Deshmukh',
+            price: '₹5,499',
+            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/women/32.jpg',
+            rating: 4.7,
+            reviews: 6420,
+            description: 'Real estate investing, property analysis, and building passive income.',
+            lessons: '35 videos',
+            duration: '9h 20m'
         },
         {
             titleKey: 'course8',
-            instructor: 'Prof. Kavita Desai',
-            price: '₹3,499',
-            image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/women/44.jpg',
-            rating: 4.8,
-            reviews: 2240,
-            description: 'Complete CSAT preparation with Aptitude, Reasoning and Comprehension.',
-            lessons: '65 lessons',
-            duration: '45h 20m'
+            instructor: 'Ramesh Iyer',
+            price: '₹1,999',
+            image: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/men/44.jpg',
+            rating: 4.9,
+            reviews: 10240,
+            description: 'Plan your retirement with PPF, NPS, pension funds and secure your future.',
+            lessons: '40 videos',
+            duration: '10h 40m'
         },
         {
             titleKey: 'course9',
-            instructor: 'Dr. Ramesh Iyer',
-            price: '₹2,499',
-            image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/men/78.jpg',
-            rating: 4.7,
-            reviews: 1680,
-            description: 'Master essay writing techniques and Ethics, Integrity & Aptitude for Mains.',
-            lessons: '50 lessons',
-            duration: '35h 40m'
+            instructor: 'Anjali Rao',
+            price: '₹2,999',
+            image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/women/78.jpg',
+            rating: 4.8,
+            reviews: 13680,
+            description: 'Complete roadmap to achieve financial independence and build wealth.',
+            lessons: '48 videos',
+            duration: '13h 40m'
         }
     ];
 
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCourse, setSelectedCourse] = useState(null);
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleExpand = () => {
+        setIsExpanded(!isExpanded);
+    };
 
     const filteredCourses = coursesData.filter(course =>
         t(course.titleKey).toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -196,14 +201,97 @@ export default function HomeScreen({ navigation }) {
                 {/* Content Body */}
                 <View className="px-6 mt-6">
 
+                    {/* Financial Content Types Grid */}
+                    <View className="mb-6">
+                        <TouchableOpacity
+                            onPress={toggleExpand}
+                            activeOpacity={0.7}
+                            className="flex-row justify-between items-center mb-4"
+                        >
+                            <Text className="text-lg font-bold text-slate-800">Financial & Money Content Types</Text>
+                            <View>
+                                {isExpanded ? (
+                                    <ChevronDown size={20} color="#334155" style={{ transform: [{ rotate: '180deg' }] }} />
+                                ) : (
+                                    <ChevronDown size={20} color="#334155" />
+                                )}
+                            </View>
+                        </TouchableOpacity>
+
+                        <View className="flex-row flex-wrap justify-between">
+                            {/* Card 1: Banking */}
+                            <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                <Landmark size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                <Text className="text-center text-xs font-medium text-slate-700">Banking Alert Update</Text>
+                            </TouchableOpacity>
+
+                            {/* Card 2: Stock Market */}
+                            <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                <TrendingUp size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                <Text className="text-center text-xs font-medium text-slate-700">Stock Market Alert</Text>
+                            </TouchableOpacity>
+
+                            {/* Card 3: Govt Scheme */}
+                            <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                <Building2 size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                <Text className="text-center text-xs font-medium text-slate-700">Government Scheme Alert</Text>
+                            </TouchableOpacity>
+
+                            {/* Card 4: Money Saving */}
+                            <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                <View className="w-8 h-8 rounded-full bg-blue-500 items-center justify-center mb-2">
+                                    <Text className="text-white font-bold text-lg">₹</Text>
+                                </View>
+                                <Text className="text-center text-xs font-medium text-slate-700">Money Saving Alert</Text>
+                            </TouchableOpacity>
+
+                            {/* Expanded Content - Extra Cards */}
+                            {isExpanded && (
+                                <>
+                                    <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                        <Landmark size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Banking Alert Update</Text>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                        <TrendingUp size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Stock Market Alert</Text>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                        <Building2 size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Government Scheme Alert</Text>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                        <View className="w-8 h-8 rounded-full bg-blue-500 items-center justify-center mb-2">
+                                            <Text className="text-white font-bold text-lg">₹</Text>
+                                        </View>
+                                        <Text className="text-center text-xs font-medium text-slate-700">Money Saving Alert</Text>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                        <Landmark size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Banking Alert Update</Text>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
+                                        <TrendingUp size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Stock Market Alert</Text>
+                                    </TouchableOpacity>
+                                </>
+                            )}
+                        </View>
+                    </View>
+
                     {/* Guidance Video Previews */}
                     <View className="mb-6">
                         <Text className="text-xl font-bold text-slate-800 mb-4">{t('guidancePreviews')}</Text>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="-mx-6 px-6">
                             {[
-                                { id: 1, title: "UPSC Exam Strategy 2026", duration: "12:45", image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" },
-                                { id: 2, title: "MPSC Prelims Tips", duration: "8:30", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" },
-                                { id: 3, title: "Current Affairs Daily", duration: "15:20", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" },
+                                { id: 1, title: "Investing Basics for Beginners", duration: "10:25", image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" },
+                                { id: 2, title: "Mutual Funds Explained", duration: "8:45", image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" },
+                                { id: 3, title: "Personal Finance Tips", duration: "12:30", image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" },
                             ].map((video, index) => (
                                 <TouchableOpacity key={index} className="mr-4 relative" activeOpacity={0.8}>
                                     <View className="w-60 h-36 rounded-2xl overflow-hidden bg-blue-100 shadow-sm relative">
@@ -239,10 +327,10 @@ export default function HomeScreen({ navigation }) {
                                     colors={['#FEF3C7', '#FDE68A']}
                                     className="w-12 h-12 rounded-2xl items-center justify-center shadow-md"
                                 >
-                                    <Text className="text-2xl">📜</Text>
+                                    <Text className="text-2xl">📈</Text>
                                 </LinearGradient>
                                 <View className="flex-1">
-                                    <Text className="font-bold text-slate-800 text-lg leading-6">Indian History & Culture</Text>
+                                    <Text className="font-bold text-slate-800 text-lg leading-6">Stock Market Basics</Text>
                                     <View className="flex-row items-center mt-1">
                                         <Star size={12} color="#F59E0B" fill="#F59E0B" />
                                         <Text className="text-xs text-blue-600 font-bold ml-1">4.9</Text>
@@ -252,7 +340,7 @@ export default function HomeScreen({ navigation }) {
 
                             <View className="mb-4">
                                 <View className="flex-row justify-between mb-2">
-                                    <Text className="text-xs text-slate-400 font-medium">Course Progress</Text>
+                                    <Text className="text-xs text-slate-400 font-medium">Video Progress</Text>
                                     <Text className="text-xs font-bold text-blue-500">65%</Text>
                                 </View>
                                 <View className="h-2.5 bg-blue-50 rounded-full overflow-hidden shadow-inner">
@@ -266,7 +354,7 @@ export default function HomeScreen({ navigation }) {
                             </View>
 
                             <View className="flex-row justify-between items-center border-t border-slate-50 pt-3">
-                                <Text className="text-xs text-slate-500 font-medium">52 / 80 Lessons</Text>
+                                <Text className="text-xs text-slate-500 font-medium">29 / 45 Videos</Text>
                                 <LinearGradient
                                     colors={['#0088FF', '#3399FF']}
                                     className="w-9 h-9 rounded-full items-center justify-center shadow-lg shadow-blue-300"
@@ -285,20 +373,20 @@ export default function HomeScreen({ navigation }) {
                                     colors={['#DBEAFE', '#BFDBFE']}
                                     className="w-12 h-12 rounded-2xl items-center justify-center shadow-md"
                                 >
-                                    <Text className="text-2xl">🌍</Text>
+                                    <Text className="text-2xl">💰</Text>
                                 </LinearGradient>
                                 <View className="flex-1">
-                                    <Text className="font-bold text-slate-800 text-lg leading-6">Geography & Environment</Text>
+                                    <Text className="font-bold text-slate-800 text-lg leading-6">Personal Finance</Text>
                                     <View className="flex-row items-center mt-1">
                                         <Star size={12} color="#F59E0B" fill="#F59E0B" />
-                                        <Text className="text-xs text-blue-600 font-bold ml-1">4.7</Text>
+                                        <Text className="text-xs text-blue-600 font-bold ml-1">4.9</Text>
                                     </View>
                                 </View>
                             </View>
 
                             <View className="mb-4">
                                 <View className="flex-row justify-between mb-2">
-                                    <Text className="text-xs text-slate-400 font-medium">Course Progress</Text>
+                                    <Text className="text-xs text-slate-400 font-medium">Video Progress</Text>
                                     <Text className="text-xs font-bold text-blue-500">45%</Text>
                                 </View>
                                 <View className="h-2.5 bg-blue-50 rounded-full overflow-hidden shadow-inner">
@@ -312,7 +400,7 @@ export default function HomeScreen({ navigation }) {
                             </View>
 
                             <View className="flex-row justify-between items-center border-t border-slate-50 pt-3">
-                                <Text className="text-xs text-slate-500 font-medium">36 / 70 Lessons</Text>
+                                <Text className="text-xs text-slate-500 font-medium">14 / 32 Videos</Text>
                                 <LinearGradient
                                     colors={['#0088FF', '#3399FF']}
                                     className="w-9 h-9 rounded-full items-center justify-center shadow-lg shadow-blue-300"

@@ -7,35 +7,35 @@ export default function CoursesScreen({ navigation }) {
     const courses = [
         {
             id: 1,
-            title: 'Indian Economy & Budget',
+            title: 'Stock Market Basics',
             progress: 0.7,
-            lessonsCompleted: 42,
-            totalLessons: 60,
-            image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            lessonsCompleted: 29,
+            totalLessons: 45,
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
         },
         {
             id: 2,
-            title: 'Indian Polity & Constitution',
+            title: 'Mutual Funds Guide',
             progress: 0.55,
-            lessonsCompleted: 44,
-            totalLessons: 80,
-            image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            lessonsCompleted: 21,
+            totalLessons: 38,
+            image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
         },
         {
             id: 3,
-            title: 'Current Affairs 2026',
-            progress: 0.85,
-            lessonsCompleted: 68,
-            totalLessons: 80,
-            image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            title: 'Personal Finance & Budgeting',
+            progress: 0.45,
+            lessonsCompleted: 14,
+            totalLessons: 32,
+            image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
         },
         {
             id: 4,
-            title: 'Essay Writing & Ethics',
+            title: 'Cryptocurrency Investing',
             progress: 0.3,
-            lessonsCompleted: 12,
-            totalLessons: 40,
-            image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            lessonsCompleted: 13,
+            totalLessons: 42,
+            image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
         }
     ];
 
@@ -51,8 +51,8 @@ export default function CoursesScreen({ navigation }) {
                             <User size={24} color="#334155" />
                         </View>
                         <View>
-                            <Text className="text-slate-800 text-xl font-bold">My Course</Text>
-                            <Text className="text-slate-500 text-xs">There are {courses.length} courses for you.</Text>
+                            <Text className="text-slate-800 text-xl font-bold">My Videos</Text>
+                            <Text className="text-slate-500 text-xs">You have {courses.length} videos to watch.</Text>
                         </View>
                     </View>
                     <TouchableOpacity className="bg-blue-50 p-2.5 rounded-full border border-blue-100">
@@ -64,7 +64,7 @@ export default function CoursesScreen({ navigation }) {
                     <View className="flex-1 bg-blue-50 flex-row items-center p-2.5 rounded-2xl border border-blue-100">
                         <Search size={20} color="#64748b" className="mr-2" />
                         <TextInput
-                            placeholder="Search courses..."
+                            placeholder="Search videos..."
                             placeholderTextColor="#94a3b8"
                             className="flex-1 text-slate-700 text-sm ml-2 font-medium"
                         />
@@ -86,7 +86,7 @@ export default function CoursesScreen({ navigation }) {
                             <Text className="text-slate-800 font-bold text-base mb-2" numberOfLines={1}>{course.title}</Text>
 
                             <View className="flex-row justify-between items-center mb-1">
-                                <Text className="text-xs text-slate-400">Course Progress</Text>
+                                <Text className="text-xs text-slate-400">Video Progress</Text>
                                 <Text className="text-xs font-bold text-blue-500">{Math.round(course.progress * 100)}%</Text>
                             </View>
 
@@ -95,7 +95,7 @@ export default function CoursesScreen({ navigation }) {
                             </View>
 
                             <Text className="text-xs text-slate-500 font-medium">
-                                <Text className="text-blue-500 font-bold">{course.lessonsCompleted}</Text> / {course.totalLessons} Lessons
+                                <Text className="text-blue-500 font-bold">{course.lessonsCompleted}</Text> / {course.totalLessons} Videos
                             </Text>
                         </View>
 

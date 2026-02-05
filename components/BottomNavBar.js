@@ -1,12 +1,12 @@
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
-import { Home, BookOpen, MessageSquare, LayoutGrid } from 'lucide-react-native';
+import { Home, BookOpen, LayoutGrid, Crown } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function BottomNavBar({ activeTab, navigation }) {
     return (
-        <View className="absolute bottom-6 left-6 right-6">
+        <View className="absolute bottom-6 left-12 right-12">
             {/* Enhanced Shadow layer */}
-            <View className="absolute top-4 left-4 right-4 h-14 bg-blue-500/40 rounded-[35px] blur-lg" />
+            <View className="absolute top-4 left-6 right-6 h-14 bg-blue-500/40 rounded-[35px] blur-lg" />
 
             {/* Main Nav Bar with Gradient */}
             <LinearGradient
@@ -28,16 +28,18 @@ export default function BottomNavBar({ activeTab, navigation }) {
                     className={`items-center justify-center space-y-1 ${activeTab === 'Courses' ? 'opacity-100' : 'opacity-70'}`}
                 >
                     <BookOpen size={24} color={activeTab === 'Courses' ? 'white' : '#B3D9FF'} fill={activeTab === 'Courses' ? 'rgba(255,255,255,0.2)' : 'none'} />
-                    <Text className={`text-[10px] font-medium ${activeTab === 'Courses' ? 'text-white' : 'text-blue-100'}`}>Courses</Text>
+                    <Text className={`text-[10px] font-medium ${activeTab === 'Courses' ? 'text-white' : 'text-blue-100'}`}>Videos</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('Chat')}
-                    className={`items-center justify-center space-y-1 ${activeTab === 'Chat' ? 'opacity-100' : 'opacity-70'}`}
+                    onPress={() => navigation.navigate('Premium')}
+                    className={`items-center justify-center space-y-1 ${activeTab === 'Premium' ? 'opacity-100' : 'opacity-70'}`}
                 >
-                    <MessageSquare size={24} color={activeTab === 'Chat' ? 'white' : '#B3D9FF'} />
-                    <Text className={`text-[10px] font-medium ${activeTab === 'Chat' ? 'text-white' : 'text-blue-100'}`}>Chat</Text>
+                    <Crown size={24} color={activeTab === 'Premium' ? 'white' : '#B3D9FF'} fill={activeTab === 'Premium' ? 'rgba(255,255,255,0.2)' : 'none'} />
+                    <Text className={`text-[10px] font-medium ${activeTab === 'Premium' ? 'text-white' : 'text-blue-100'}`}>Premium</Text>
                 </TouchableOpacity>
+
+
 
                 <TouchableOpacity
                     onPress={() => navigation.navigate('Profile')}
