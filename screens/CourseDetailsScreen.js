@@ -13,7 +13,7 @@ export default function CourseDetailsScreen({ navigation }) {
             {/* Top Image Section */}
             <View className="relative">
                 <Image
-                    source={{ uri: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }}
+                    source={{ uri: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }}
                     className="w-full h-72"
                     resizeMode="cover"
                 />
@@ -44,55 +44,60 @@ export default function CourseDetailsScreen({ navigation }) {
             <ScrollView className="flex-1 -mt-4" contentContainerStyle={{ paddingBottom: 100 }}>
                 <View className="px-6">
                     <View className="flex-row items-center space-x-2 mb-2">
-                        <View className="bg-orange-100 px-3 py-1 rounded-full">
-                            <Text className="text-orange-500 text-xs font-bold">Best Seller</Text>
+                        <View className="bg-blue-100 px-3 py-1 rounded-full">
+                            <Text className="text-blue-500 text-xs font-bold">UPSC Recommended</Text>
                         </View>
                         <View className="flex-row items-center">
                             <Star size={14} color="#F59E0B" fill="#F59E0B" />
-                            <Text className="text-slate-600 text-xs font-bold ml-1">4.8 (2.5k reviews)</Text>
+                            <Text className="text-slate-600 text-xs font-bold ml-1">4.9 (5.2k reviews)</Text>
                         </View>
                     </View>
 
-                    <Text className="text-2xl font-bold text-slate-800 mb-2">Complete Product Design Course: UI/UX Masterclass</Text>
+                    <Text className="text-2xl font-bold text-slate-800 mb-2">UPSC Prelims Complete Course: GS Paper I & II</Text>
 
                     <View className="flex-row items-center space-x-4 mb-6">
                         <View className="flex-row items-center space-x-2">
                             <Clock size={16} color="#94A3B8" />
-                            <Text className="text-slate-500 text-sm">20h 10m</Text>
+                            <Text className="text-slate-500 text-sm">80h 30m</Text>
                         </View>
                         <View className="flex-row items-center space-x-2">
                             <BookOpen size={16} color="#94A3B8" />
-                            <Text className="text-slate-500 text-sm">40 Lessons</Text>
+                            <Text className="text-slate-500 text-sm">120 Lessons</Text>
                         </View>
                     </View>
 
                     <View className="flex-row items-center justify-between mb-8">
                         <View className="flex-row items-center space-x-3">
-                            <Image source={{ uri: 'https://randomuser.me/api/portraits/women/44.jpg' }} className="w-12 h-12 rounded-full border-2 border-white shadow-sm" />
+                            <Image source={{ uri: 'https://randomuser.me/api/portraits/men/44.jpg' }} className="w-12 h-12 rounded-full border-2 border-white shadow-sm" />
                             <View>
                                 <Text className="text-slate-500 text-xs">Created by</Text>
-                                <Text className="text-slate-800 font-bold">Emily Hazel</Text>
+                                <Text className="text-slate-800 font-bold">Dr. Rajesh Kumar</Text>
                             </View>
                         </View>
-                        <Text className="text-3xl font-bold text-blue-500">₹4,299</Text>
+                        <Text className="text-3xl font-bold text-blue-500">₹8,999</Text>
                     </View>
 
                     <Text className="text-lg font-bold text-slate-800 mb-4">About Course</Text>
                     <Text className="text-slate-500 leading-6 mb-8">
-                        Learn to design websites and mobile applications securely and beautifully. This course covers everything from wireframing to high-fidelity prototyping using Figma and Adobe XD. Perfect for beginners!
+                        Complete preparation for UPSC Civil Services Preliminary Examination covering General Studies Paper I & II. Includes Indian Polity, History, Geography, Economy, Environment, Current Affairs, and CSAT with comprehensive study material and test series.
                     </Text>
 
                     <Text className="text-lg font-bold text-slate-800 mb-4">Curriculum</Text>
                     <View className="space-y-4">
-                        {[1, 2, 3, 4].map((item, index) => (
-                            <View key={index} className="bg-white p-4 rounded-2xl border border-slate-100 flex-row items-center justify-between">
+                        {[
+                            { title: 'Indian Constitution Basics', duration: '45:30' },
+                            { title: 'Fundamental Rights & Duties', duration: '38:20' },
+                            { title: 'Directive Principles of State Policy', duration: '42:15' },
+                            { title: 'Union & State Government', duration: '50:45' }
+                        ].map((item, index) => (
+                            <View key={index} className="bg-white p-4 rounded-2xl border border-blue-100 flex-row items-center justify-between">
                                 <View className="flex-row items-center space-x-4">
                                     <View className="w-10 h-10 bg-blue-50 rounded-full items-center justify-center">
                                         <Text className="text-blue-500 font-bold">{index + 1}</Text>
                                     </View>
                                     <View>
-                                        <Text className="font-bold text-slate-800">Introduction to UI Design</Text>
-                                        <Text className="text-slate-400 text-xs">10:30 mins</Text>
+                                        <Text className="font-bold text-slate-800">{item.title}</Text>
+                                        <Text className="text-slate-400 text-xs">{item.duration} mins</Text>
                                     </View>
                                 </View>
                                 <TouchableOpacity className="w-8 h-8 rounded-full bg-blue-500 items-center justify-center shadow-lg shadow-blue-200">

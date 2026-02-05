@@ -30,15 +30,15 @@ export default function ChatDetailScreen({ route, navigation }) {
     return (
         <View className="flex-1 bg-[#F5F7FA]">
             {/* Header */}
-            <View className="bg-orange-500 pt-12 pb-4 px-4 rounded-b-[30px] shadow-sm z-10 flex-row items-center justify-between">
+            <View className="bg-blue-500 pt-12 pb-4 px-4 rounded-b-[30px] shadow-sm z-10 flex-row items-center justify-between">
                 <View className="flex-row items-center">
                     <TouchableOpacity onPress={() => navigation.goBack()} className="mr-3 p-1">
                         <ChevronLeft size={28} color="white" />
                     </TouchableOpacity>
-                    <Image source={{ uri: user.avatar }} className="w-10 h-10 rounded-full bg-slate-200" />
+                    <Image source={{ uri: user.avatar }} className="w-10 h-10 rounded-full bg-blue-100" />
                     <View className="ml-3">
                         <Text className="text-white font-bold text-lg">{user.name}</Text>
-                        <Text className="text-orange-100 text-xs">Online</Text>
+                        <Text className="text-blue-100 text-xs">Online</Text>
                     </View>
                 </View>
                 <View className="flex-row space-x-4 mr-2">
@@ -59,7 +59,7 @@ export default function ChatDetailScreen({ route, navigation }) {
                 contentContainerStyle={{ padding: 20 }}
                 renderItem={({ item }) => (
                     <View className={`mb-4 max-w-[80%] ${item.sender === 'me' ? 'self-end' : 'self-start'}`}>
-                        <View className={`p-3 rounded-2xl ${item.sender === 'me' ? 'bg-orange-500 rounded-tr-none' : 'bg-white rounded-tl-none border border-slate-100 shadow-sm'}`}>
+                        <View className={`p-3 rounded-2xl ${item.sender === 'me' ? 'bg-blue-500 rounded-tr-none' : 'bg-white rounded-tl-none border border-blue-100 shadow-sm'}`}>
                             <Text className={`${item.sender === 'me' ? 'text-white' : 'text-slate-800'}`}>{item.text}</Text>
                         </View>
                         <Text className={`text-[10px] mt-1 ${item.sender === 'me' ? 'text-right text-slate-400' : 'text-slate-400'}`}>{item.time}</Text>
@@ -69,9 +69,9 @@ export default function ChatDetailScreen({ route, navigation }) {
 
             {/* Input Area */}
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-                <View className="p-4 bg-white border-t border-slate-100 flex-row items-center safe-bottom">
+                <View className="p-4 bg-white border-t border-blue-100 flex-row items-center safe-bottom">
                     <TextInput
-                        className="flex-1 bg-slate-100 rounded-full px-5 py-3 mr-3 text-slate-800 max-h-24"
+                        className="flex-1 bg-blue-50 rounded-full px-5 py-3 mr-3 text-slate-800 max-h-24"
                         placeholder="Type a message..."
                         placeholderTextColor="#94a3b8"
                         value={inputText}
@@ -80,7 +80,7 @@ export default function ChatDetailScreen({ route, navigation }) {
                     />
                     <TouchableOpacity
                         onPress={sendMessage}
-                        className={`w-12 h-12 rounded-full items-center justify-center ${inputText.trim() ? 'bg-orange-500 shadow-lg shadow-orange-300' : 'bg-slate-200'}`}
+                        className={`w-12 h-12 rounded-full items-center justify-center ${inputText.trim() ? 'bg-blue-500 shadow-lg shadow-blue-300' : 'bg-blue-100'}`}
                         disabled={!inputText.trim()}
                     >
                         <Send size={20} color="white" style={{ marginLeft: 2 }} />
