@@ -55,9 +55,7 @@ export default function CoursesScreen({ navigation }) {
                             <Text className="text-slate-500 text-xs">You have {courses.length} videos to watch.</Text>
                         </View>
                     </View>
-                    <TouchableOpacity className="bg-blue-50 p-2.5 rounded-full border border-blue-100">
-                        <Bell size={24} color="#334155" />
-                    </TouchableOpacity>
+
                 </View>
 
                 <View className="flex-row space-x-3 items-center">
@@ -69,9 +67,7 @@ export default function CoursesScreen({ navigation }) {
                             className="flex-1 text-slate-700 text-sm ml-2 font-medium"
                         />
                     </View>
-                    <TouchableOpacity className="bg-blue-50 p-2.5 rounded-2xl border border-blue-100">
-                        <Filter size={20} color="#334155" />
-                    </TouchableOpacity>
+
                 </View>
             </View>
 
