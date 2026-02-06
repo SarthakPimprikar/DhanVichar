@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export default function BottomNavBar({ activeTab, navigation }) {
     return (
-        <View className="absolute bottom-6 left-12 right-12">
+        <View className="absolute bottom-6 left-4 right-4">
             {/* Enhanced Shadow layer */}
             <View className="absolute top-4 left-6 right-6 h-14 bg-blue-500/40 rounded-[35px] blur-lg" />
 

@@ -60,6 +60,67 @@ export const translations = {
         course8: 'Retirement Planning Masterclass',
         course9: 'Financial Freedom Blueprint',
     },
+    hindi: {
+        // Home Screen
+        welcomeBack: 'वापसी पर स्वागत है',
+        whatLearn: 'वित्तीय वीडियो खोजें...',
+        guidancePreviews: 'विशेष वीडियो',
+        inProgress: 'देखना जारी रखें',
+        seeAll: 'सभी देखें',
+        popularCourses: 'लोकप्रिय वीडियो',
+        courseProgress: 'वीडियो प्रगति',
+        lessons: 'वीडियो',
+        enrollNow: 'अभी देखें',
+
+        // Courses
+        myCourse: 'मेरे वीडियो',
+        coursesFor: 'आपके पास',
+        coursesForYou: 'वीडियो देखने के लिए हैं।',
+
+        // Chat
+        messages: 'संदेश',
+        youHave: 'आपके पास',
+        newMessages: 'नए संदेश हैं।',
+        unread: 'अपठित',
+        markAsRead: 'पढ़ा हुआ चिह्नित करें',
+        typeMessage: 'संदेश लिखें...',
+        online: 'ऑनलाइन',
+
+        // Profile
+        profile: 'प्रोफ़ाइल',
+        enrolledCourses: 'देखे गए वीडियो',
+        mockTestsDone: 'क्विज़ पूर्ण',
+        examReadiness: 'वित्तीय ज्ञान',
+        personalData: 'व्यक्तिगत डेटा',
+        settings: 'सेटिंग्स',
+        eStatement: 'ई-विवरण',
+        referralCode: 'रेफरल कोड',
+        faqs: 'सामान्य प्रश्न',
+        logOut: 'लॉग आउट',
+        aspirantName: 'आपका नाम',
+
+        // Course Details
+        upscRecommended: 'अनुशंसित',
+        reviews: 'समीक्षाएं',
+        createdBy: 'द्वारा निर्मित',
+        aboutCourse: 'इस सीरीज के बारे में',
+        curriculum: 'वीडियो प्लेलिस्ट',
+        mins: 'मिनट',
+
+        // Common
+        upscAspirant: 'वित्तीय शिक्षार्थी',
+
+        // Course Names
+        course1: 'शुरुआती के लिए शेयर बाजार',
+        course2: 'म्यूचुअल फंड संपूर्ण गाइड',
+        course3: 'व्यक्तिगत वित्त और बजट',
+        course4: 'भारतीय शेयर बाजार में निवेश',
+        course5: 'कर नियोजन और बचत',
+        course6: 'क्रिप्टोकरेंसी और डिजिटल संपत्ति',
+        course7: 'रियल एस्टेट निवेश रणनीतियाँ',
+        course8: 'सेवानिवृत्ती नियोजन मास्टरक्लास',
+        course9: 'वित्तीय स्वतंत्रता का खाका',
+    },
     marathi: {
         // Home Screen
         welcomeBack: 'पुन्हा स्वागत आहे',

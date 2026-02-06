@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View, Text, ScrollView, TextInput, Image, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Bell, Search, Filter, Play, Home, BookOpen, MessageSquare, LayoutGrid, User, Star, X, CheckCircle, Languages, Landmark, TrendingUp, Building2, Wallet, ChevronDown } from 'lucide-react-native';
+import { Bell, Search, Filter, Play, Home, BookOpen, MessageSquare, LayoutGrid, User, Star, X, CheckCircle, Languages, Landmark, TrendingUp, Building2, Wallet, ChevronDown, PieChart, Calculator, Briefcase, Coins, ShieldCheck } from 'lucide-react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import BottomNavBar from '../components/BottomNavBar';
@@ -128,6 +128,7 @@ export default function HomeScreen({ navigation }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [isExpanded, setIsExpanded] = useState(false);
+    const [showAllPopular, setShowAllPopular] = useState(false);
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
@@ -166,15 +167,19 @@ export default function HomeScreen({ navigation }) {
                         <View className="flex-row space-x-2">
                             <TouchableOpacity
                                 onPress={toggleLanguage}
-                                className="bg-blue-50 rounded-full items-center justify-center px-2.5 py-2 flex-row space-x-1 border border-blue-100"
+                                activeOpacity={0.7}
                             >
-                                <Text className="text-slate-700 text-sm">{isMarathi ? '🇮🇳' : '🇬🇧'}</Text>
-                                <Text className="text-slate-700 text-[10px] font-bold">{isMarathi ? 'मर' : 'EN'}</Text>
+                                <LinearGradient
+                                    colors={['#ffffff', '#eff6ff']}
+                                    className="flex-row items-center px-3 py-1.5 rounded-full border border-blue-100 shadow-sm"
+                                >
+                                    <Languages size={14} color="#3B82F6" style={{ marginRight: 4 }} />
+                                    <Text className="text-slate-700 text-xs font-bold">
+                                        {language === 'english' ? 'English' : language === 'hindi' ? 'Hindi' : 'Marathi'}
+                                    </Text>
+                                </LinearGradient>
                             </TouchableOpacity>
-                            <TouchableOpacity className="bg-blue-50 p-2.5 rounded-full border border-blue-100 relative">
-                                <Bell size={24} color="#334155" />
-                                <View className="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white shadow-lg" />
-                            </TouchableOpacity>
+
                         </View>
                     </View>
 
@@ -190,11 +195,7 @@ export default function HomeScreen({ navigation }) {
                                 onChangeText={setSearchQuery}
                             />
                         </View>
-                        <View className="bg-blue-50 p-2.5 rounded-2xl border border-blue-100">
-                            <TouchableOpacity>
-                                <Filter size={20} color="#334155" />
-                            </TouchableOpacity>
-                        </View>
+
                     </View>
                 </View>
 
@@ -249,35 +250,33 @@ export default function HomeScreen({ navigation }) {
                             {isExpanded && (
                                 <>
                                     <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
-                                        <Landmark size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
-                                        <Text className="text-center text-xs font-medium text-slate-700">Banking Alert Update</Text>
+                                        <PieChart size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Mutual Funds & SIP</Text>
                                     </TouchableOpacity>
 
                                     <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
-                                        <TrendingUp size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
-                                        <Text className="text-center text-xs font-medium text-slate-700">Stock Market Alert</Text>
+                                        <ShieldCheck size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Insurance Guide</Text>
                                     </TouchableOpacity>
 
                                     <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
-                                        <Building2 size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
-                                        <Text className="text-center text-xs font-medium text-slate-700">Government Scheme Alert</Text>
+                                        <Calculator size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Tax Planning</Text>
                                     </TouchableOpacity>
 
                                     <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
-                                        <View className="w-8 h-8 rounded-full bg-blue-500 items-center justify-center mb-2">
-                                            <Text className="text-white font-bold text-lg">₹</Text>
-                                        </View>
-                                        <Text className="text-center text-xs font-medium text-slate-700">Money Saving Alert</Text>
+                                        <Coins size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Crypto & Digital Assets</Text>
                                     </TouchableOpacity>
 
                                     <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
-                                        <Landmark size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
-                                        <Text className="text-center text-xs font-medium text-slate-700">Banking Alert Update</Text>
+                                        <Briefcase size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Retirement Planning</Text>
                                     </TouchableOpacity>
 
                                     <TouchableOpacity className="w-[48%] bg-white border border-blue-400 rounded-xl p-4 items-center justify-center mb-4 shadow-sm h-32">
-                                        <TrendingUp size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
-                                        <Text className="text-center text-xs font-medium text-slate-700">Stock Market Alert</Text>
+                                        <Wallet size={32} color="#3B82F6" style={{ marginBottom: 8 }} />
+                                        <Text className="text-center text-xs font-medium text-slate-700">Loans & Credit Score</Text>
                                     </TouchableOpacity>
                                 </>
                             )}
@@ -314,7 +313,7 @@ export default function HomeScreen({ navigation }) {
                     {/* In Progress Section */}
                     <View className="flex-row justify-between items-center mb-5">
                         <Text className="text-xl font-bold text-slate-800">{t('inProgress')}</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Courses')}>
                             <Text className="text-blue-500 font-semibold">{t('seeAll')}</Text>
                         </TouchableOpacity>
                     </View>
@@ -416,14 +415,14 @@ export default function HomeScreen({ navigation }) {
                     {/* Popular Courses */}
                     <View className="flex-row justify-between items-center mb-5">
                         <Text className="text-xl font-bold text-slate-800">{t('popularCourses')}</Text>
-                        <TouchableOpacity>
-                            <Text className="text-blue-500 font-semibold">{t('seeAll')}</Text>
+                        <TouchableOpacity onPress={() => setShowAllPopular(!showAllPopular)}>
+                            <Text className="text-blue-500 font-semibold">{showAllPopular ? 'Show Less' : t('seeAll')}</Text>
                         </TouchableOpacity>
                     </View>
 
                     <View className="space-y-4 mb-6">
                         {filteredCourses.length > 0 ? (
-                            filteredCourses.map((course, index) => (
+                            (showAllPopular ? filteredCourses : filteredCourses.slice(0, 4)).map((course, index) => (
                                 <TouchableOpacity
                                     key={index}
                                     onPress={() => setSelectedCourse(course)}

@@ -14,7 +14,11 @@ export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState('english'); // 'english' or 'marathi'
 
     const toggleLanguage = () => {
-        setLanguage(prev => prev === 'english' ? 'marathi' : 'english');
+        setLanguage(prev => {
+            if (prev === 'english') return 'hindi';
+            if (prev === 'hindi') return 'marathi';
+            return 'english';
+        });
     };
 
     const value = {
@@ -22,7 +26,8 @@ export const LanguageProvider = ({ children }) => {
         setLanguage,
         toggleLanguage,
         isMarathi: language === 'marathi',
-        isEnglish: language === 'english'
+        isEnglish: language === 'english',
+        isHindi: language === 'hindi'
     };
 
     return (

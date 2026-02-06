@@ -1,6 +1,7 @@
 import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { ChevronRight, ChevronLeft, Edit3, BookOpen, Flag, BarChart2, User, Settings, FileText, Share2, HelpCircle, LogOut, Languages } from 'lucide-react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import BottomNavBar from '../components/BottomNavBar';
 import { useLanguage } from '../contexts/LanguageContext';
 import { getTranslation } from '../utils/translations';
@@ -36,10 +37,17 @@ export default function ProfileScreen({ navigation }) {
                         <Text className="text-slate-800 text-xl font-bold">{t('profile')}</Text>
                         <TouchableOpacity
                             onPress={toggleLanguage}
-                            className="bg-blue-50 rounded-full items-center justify-center px-3 py-2 flex-row space-x-1 border border-blue-100"
+                            activeOpacity={0.7}
                         >
-                            <Text className="text-slate-700 text-lg">{isMarathi ? '🇮🇳' : '🇬🇧'}</Text>
-                            <Text className="text-slate-700 text-xs font-bold">{isMarathi ? 'मर' : 'EN'}</Text>
+                            <LinearGradient
+                                colors={['#ffffff', '#eff6ff']}
+                                className="flex-row items-center px-3 py-1.5 rounded-full border border-blue-100 shadow-sm"
+                            >
+                                <Languages size={14} color="#3B82F6" style={{ marginRight: 4 }} />
+                                <Text className="text-slate-700 text-xs font-bold">
+                                    {language === 'english' ? 'English' : language === 'hindi' ? 'Hindi' : 'Marathi'}
+                                </Text>
+                            </LinearGradient>
                         </TouchableOpacity>
                     </View>
 
