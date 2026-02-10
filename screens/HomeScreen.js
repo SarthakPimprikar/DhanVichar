@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View, Text, ScrollView, TextInput, Image, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Bell, Search, Filter, Play, Home, BookOpen, MessageSquare, LayoutGrid, User, Star, X, CheckCircle, Languages, Landmark, TrendingUp, Building2, Wallet, ChevronDown, PieChart, Calculator, Briefcase, Coins, ShieldCheck } from 'lucide-react-native';
+import { Bell, Search, Filter, Play, Home, BookOpen, MessageSquare, LayoutGrid, User, Star, X, CheckCircle, Languages, Landmark, TrendingUp, Building2, Wallet, ChevronDown, PieChart, Calculator, Briefcase, Coins, ShieldCheck, Eye, Clock } from 'lucide-react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import BottomNavBar from '../components/BottomNavBar';
@@ -16,112 +16,104 @@ export default function HomeScreen({ navigation }) {
 
     const coursesData = [
         {
-            titleKey: 'course1',
+            id: 1,
+            title: 'How to Start Investing in Stock Market 2026',
             instructor: 'CA Rajesh Mehta',
-            price: '₹999',
             image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/men/44.jpg',
-            rating: 4.9,
-            reviews: 12450,
-            description: 'Learn stock market fundamentals, how to read charts, and start investing wisely.',
-            lessons: '45 videos',
-            duration: '12h 30m'
+            views: '1.2M views',
+            duration: '15:30',
+            description: 'A complete beginner guide to starting your journey in the Indian Stock Market.'
         },
         {
-            titleKey: 'course2',
+            id: 2,
+            title: 'Top 5 Mutual Funds for High Returns',
             instructor: 'Priya Sharma',
-            price: '₹1,499',
             image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/women/85.jpg',
-            rating: 4.8,
-            reviews: 9820,
-            description: 'Complete guide to mutual funds, SIP, and building a diversified portfolio.',
-            lessons: '38 videos',
-            duration: '10h 45m'
+            views: '850K views',
+            duration: '12:45',
+            description: 'Analysis of top performing mutual funds for the current fiscal year.'
         },
         {
-            titleKey: 'course3',
+            id: 3,
+            title: 'Budgeting 101: Save Money Fast',
             instructor: 'Vikram Patil',
-            price: '₹499',
             image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/men/65.jpg',
-            rating: 4.9,
-            reviews: 15120,
-            description: 'Master budgeting, expense tracking, and build a solid financial foundation.',
-            lessons: '32 videos',
-            duration: '8h 20m'
+            views: '2.1M views',
+            duration: '08:20',
+            description: 'Practical tips to manage your monthly budget and save more.'
         },
         {
-            titleKey: 'course4',
-            instructor: 'Meera Shah',
-            price: '₹2,499',
-            image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/women/22.jpg',
-            rating: 4.7,
-            reviews: 8180,
-            description: 'Deep dive into Indian stock market, NSE, BSE, and investment strategies.',
-            lessons: '52 videos',
-            duration: '15h 15m'
-        },
-        {
-            titleKey: 'course5',
-            instructor: 'CA Suresh Joshi',
-            price: '₹1,299',
-            image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/men/55.jpg',
-            rating: 4.8,
-            reviews: 11950,
-            description: 'Learn tax-saving strategies, deductions, and maximize your savings legally.',
-            lessons: '28 videos',
-            duration: '7h 30m'
-        },
-        {
-            titleKey: 'course6',
+            id: 4,
+            title: 'Crypto Trading Strategies for Beginners',
             instructor: 'Aditya Kulkarni',
-            price: '₹3,999',
             image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
             authorImage: 'https://randomuser.me/api/portraits/men/66.jpg',
-            rating: 4.6,
-            reviews: 7650,
-            description: 'Understand cryptocurrency, blockchain, Bitcoin, Ethereum and digital investments.',
-            lessons: '42 videos',
-            duration: '11h 45m'
+            views: '540K views',
+            duration: '18:15',
+            description: 'Learn the basics of cryptocurrency trading and chart patterns.'
         },
         {
-            titleKey: 'course7',
-            instructor: 'Kavita Deshmukh',
-            price: '₹5,499',
-            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/women/32.jpg',
-            rating: 4.7,
-            reviews: 6420,
-            description: 'Real estate investing, property analysis, and building passive income.',
-            lessons: '35 videos',
-            duration: '9h 20m'
+            id: 5,
+            title: 'Tax Saving Hacks for Salaried Employees',
+            instructor: 'CA Suresh Joshi',
+            image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/men/55.jpg',
+            views: '1.5M views',
+            duration: '22:10',
+            description: 'Maximize your tax refunds with these legal saving strategies.'
         },
         {
-            titleKey: 'course8',
-            instructor: 'Ramesh Iyer',
-            price: '₹1,999',
-            image: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/men/44.jpg',
-            rating: 4.9,
-            reviews: 10240,
-            description: 'Plan your retirement with PPF, NPS, pension funds and secure your future.',
-            lessons: '40 videos',
-            duration: '10h 40m'
+            id: 6,
+            title: 'Gold Investment: Digital vs Physical',
+            instructor: 'Neha Gupta',
+            image: 'https://images.unsplash.com/photo-1610375461490-679bb6e28dd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/women/44.jpg',
+            views: '920K views',
+            duration: '14:20',
+            description: 'Understanding the best way to invest in gold for long term returns.'
         },
         {
-            titleKey: 'course9',
-            instructor: 'Anjali Rao',
-            price: '₹2,999',
-            image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-            authorImage: 'https://randomuser.me/api/portraits/women/78.jpg',
-            rating: 4.8,
-            reviews: 13680,
-            description: 'Complete roadmap to achieve financial independence and build wealth.',
-            lessons: '48 videos',
-            duration: '13h 40m'
+            id: 7,
+            title: 'SIP vs Lumpsum: What to Choose?',
+            instructor: 'Rahul Verma',
+            image: 'https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/men/32.jpg',
+            views: '1.8M views',
+            duration: '10:15',
+            description: 'Mathematical comparison of SIP and Lumpsum investment strategies.'
+        },
+        {
+            id: 8,
+            title: 'Insurance Guide: Term vs Life',
+            instructor: 'Dr. Anita Desai',
+            image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/women/65.jpg',
+            views: '750K views',
+            duration: '16:50',
+            description: 'Clear confusion between Term Insurance and Life Insurance policies.'
+        },
+        {
+            id: 9,
+            title: 'Retirement Planning at 30',
+            instructor: 'Karan Malhotra',
+            image: 'https://images.unsplash.com/photo-1534951009808-766178b47efd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/men/85.jpg',
+            views: '2.5M views',
+            duration: '19:40',
+            description: 'Step-by-step guide to retire early with financial freedom.'
+        },
+        {
+            id: 10,
+            title: '5 Side Hustles to Earn ₹50k/Month',
+            instructor: 'Simran Kaur',
+            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            authorImage: 'https://randomuser.me/api/portraits/women/90.jpg',
+            views: '3.0M views',
+            duration: '11:10',
+            description: 'Legitimate online ways to earn extra income in your spare time.'
         }
     ];
 
@@ -135,7 +127,7 @@ export default function HomeScreen({ navigation }) {
     };
 
     const filteredCourses = coursesData.filter(course =>
-        t(course.titleKey).toLowerCase().includes(searchQuery.toLowerCase()) ||
+        course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         course.instructor.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -436,17 +428,16 @@ export default function HomeScreen({ navigation }) {
                                     </View>
                                     <View className="flex-1 py-1 justify-between">
                                         <View>
-                                            <Text className="font-bold text-slate-800 text-base mb-1">{t(course.titleKey)}</Text>
-                                            <Text className="text-xs text-slate-400">{course.duration} • {course.lessons}</Text>
+                                            <Text className="font-bold text-slate-800 text-base mb-1" numberOfLines={2}>{course.title}</Text>
+                                            <Text className="text-xs text-slate-400">{course.views} • {course.duration}</Text>
                                         </View>
-                                        <View className="flex-row justify-between items-center mt-2">
+                                        <View className="flex-row items-center mt-2">
                                             <View className="flex-row items-center space-x-2">
                                                 <View className="w-6 h-6 bg-blue-100 rounded-full overflow-hidden">
                                                     <Image source={{ uri: course.authorImage }} className="w-full h-full" />
                                                 </View>
                                                 <Text className="text-xs text-slate-600 font-medium">{course.instructor}</Text>
                                             </View>
-                                            <Text className="text-blue-500 font-bold text-base">{course.price}</Text>
                                         </View>
                                     </View>
                                 </TouchableOpacity>
@@ -499,19 +490,25 @@ export default function HomeScreen({ navigation }) {
 
                                 <Text className="text-slate-500 mb-6 leading-6">{selectedCourse.description}</Text>
 
-                                <View className="flex-row justify-between items-center bg-blue-50 p-4 rounded-xl mb-6 border border-blue-100">
-                                    <View>
-                                        <Text className="text-blue-400 text-xs font-bold uppercase mb-1">Total Price</Text>
-                                        <Text className="text-3xl font-bold text-blue-600">{selectedCourse.price}</Text>
+                                <View className="flex-row justify-around items-center mb-6">
+                                    <View className="flex-row items-center space-x-2 bg-blue-50 px-4 py-3 rounded-2xl border border-blue-100 flex-1 mr-2 justify-center">
+                                        <Eye size={20} color="#3B82F6" />
+                                        <Text className="text-slate-700 font-bold text-sm">{selectedCourse.views}</Text>
                                     </View>
-                                    <View className="items-end">
-                                        <Text className="text-slate-500 font-medium text-xs">{selectedCourse.lessons}</Text>
-                                        <Text className="text-slate-500 font-medium text-xs">{selectedCourse.duration}</Text>
+                                    <View className="flex-row items-center space-x-2 bg-amber-50 px-4 py-3 rounded-2xl border border-amber-100 flex-1 ml-2 justify-center">
+                                        <Clock size={20} color="#F59E0B" />
+                                        <Text className="text-slate-700 font-bold text-sm">{selectedCourse.duration}</Text>
                                     </View>
                                 </View>
 
-                                <TouchableOpacity className="bg-blue-600 w-full py-4 rounded-xl shadow-lg shadow-blue-300">
-                                    <Text className="text-white text-center font-bold text-lg">Enroll Now</Text>
+                                <TouchableOpacity
+                                    className="bg-blue-600 w-full py-4 rounded-xl shadow-lg shadow-blue-300"
+                                    onPress={() => {
+                                        setSelectedCourse(null);
+                                        navigation.navigate('Premium');
+                                    }}
+                                >
+                                    <Text className="text-white text-center font-bold text-lg">Watch</Text>
                                 </TouchableOpacity>
                             </>
                         )}

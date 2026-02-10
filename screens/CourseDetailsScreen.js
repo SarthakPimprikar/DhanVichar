@@ -74,7 +74,7 @@ export default function CourseDetailsScreen({ navigation }) {
                                 <Text className="text-slate-800 font-bold">Dr. Rajesh Kumar</Text>
                             </View>
                         </View>
-                        <Text className="text-3xl font-bold text-blue-500">₹8,999</Text>
+
                     </View>
 
                     <Text className="text-lg font-bold text-slate-800 mb-4">About Course</Text>
@@ -112,8 +112,11 @@ export default function CourseDetailsScreen({ navigation }) {
 
             {/* Bottom Floating Action Button */}
             <View className="absolute bottom-8 left-6 right-6">
-                <TouchableOpacity className="bg-blue-600 p-4 rounded-2xl flex-row items-center justify-center shadow-lg shadow-blue-400 space-x-2">
-                    <Text className="text-white font-bold text-lg">Enroll Now</Text>
+                <TouchableOpacity
+                    className="bg-blue-600 p-4 rounded-2xl flex-row items-center justify-center shadow-lg shadow-blue-400 space-x-2"
+                    onPress={() => navigation.navigate('Premium')}
+                >
+                    <Text className="text-white font-bold text-lg">Watch</Text>
                 </TouchableOpacity>
             </View>
         </View>

@@ -9,40 +9,19 @@ export default function PremiumScreen({ navigation }) {
     const plans = [
         {
             id: 1,
-            duration: '1 Month',
-            price: '₹199',
-            originalPrice: '₹299',
-            save: 'Save 33%',
-            features: ['Ad-free experience', 'Unlimited access to all videos', 'Download for offline viewing'],
-            color: ['#60A5FA', '#3B82F6']
-        },
-        {
-            id: 2,
-            duration: '3 Months',
-            price: '₹499',
-            originalPrice: '₹897',
-            save: 'Save 45%',
-            features: ['All monthly features', 'Priority support', 'Exclusive webinars'],
+            duration: '99 Days Premium',
+            price: '₹99',
+            originalPrice: '₹999',
+            save: 'Save 90%',
+            features: [
+                'Ad-free experience',
+                'Unlimited access to all videos',
+                'Download for offline viewing',
+                'Priority customer support',
+                'Exclusive webinars access'
+            ],
             popular: true,
-            color: ['#F59E0B', '#D97706']
-        },
-        {
-            id: 3,
-            duration: '6 Months',
-            price: '₹899',
-            originalPrice: '₹1,794',
-            save: 'Save 50%',
-            features: ['All 3-month features', '1-on-1 financial session', 'Certificate of completion'],
-            color: ['#8B5CF6', '#7C3AED']
-        },
-        {
-            id: 4,
-            duration: '1 Year',
-            price: '₹1,499',
-            originalPrice: '₹3,588',
-            save: 'Save 60%',
-            features: ['All 6-month features', 'Personalized financial plan', 'Lifetime community access'],
-            color: ['#10B981', '#059669']
+            color: ['#3399FF', '#0088FF']
         }
     ];
 
@@ -107,10 +86,17 @@ export default function PremiumScreen({ navigation }) {
                                 </View>
 
                                 <TouchableOpacity
-                                    className="w-full py-4 rounded-xl items-center justify-center shadow-md"
-                                    style={{ backgroundColor: plan.color[1] }}
+                                    activeOpacity={0.8}
+                                    className="w-full rounded-xl shadow-md overflow-hidden"
                                 >
-                                    <Text className="text-white font-bold text-lg">Subscribe Now</Text>
+                                    <LinearGradient
+                                        colors={plan.color}
+                                        start={{ x: 0, y: 0 }}
+                                        end={{ x: 1, y: 0 }}
+                                        className="w-full py-4 items-center justify-center"
+                                    >
+                                        <Text className="text-white font-bold text-lg">Subscribe Now</Text>
+                                    </LinearGradient>
                                 </TouchableOpacity>
                             </LinearGradient>
                         </TouchableOpacity>
